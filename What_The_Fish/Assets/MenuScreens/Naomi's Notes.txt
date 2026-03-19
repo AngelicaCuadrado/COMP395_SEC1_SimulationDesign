@@ -1,0 +1,24 @@
+TITLE SCREEN
+          '---> Play 
+		  leads to Game Scene
+          '---> Settings 
+		  the canvas panel for Sound
+          '---> Quit
+		  closes the Game
+
+
+PAUSE SCREEN is triggered by ESC button 
+                       '---> pressing enter resumes the game
+
+FINISH SCREEN
+          '---> How many casualties
+          '---> Highest level reached (level = days)
+          '---> Total Mercury
+          '---> Total Food Accumulated vs Quota
+          '---> Successfully sorted fish
+          '---> Failed to sort properly
+          '---> Mayor's Approval (facial expression)
+          '---> Back to TITLE SCREEN
+
+
+
