@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2123d991fd1c79546995d237efabfdff
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 355410
+  packageName: Animated Pixel Magic Book
+  packageVersion: 1.11
+  assetPath: Assets/MagicBookUI/Animations/State_Page1.anim
+  uploadId: 868274
