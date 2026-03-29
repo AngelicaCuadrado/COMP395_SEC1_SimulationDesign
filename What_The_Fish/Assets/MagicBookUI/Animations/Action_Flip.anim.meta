@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 01566147702427b4c9b3f054162cd247
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 355410
+  packageName: Animated Pixel Magic Book
+  packageVersion: 1.11
+  assetPath: Assets/MagicBookUI/Animations/Action_Flip.anim
+  uploadId: 868274

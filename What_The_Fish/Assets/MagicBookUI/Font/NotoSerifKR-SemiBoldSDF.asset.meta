@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 790f8d7c12ff30348bce862d9f5b01fa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 355410
+  packageName: Animated Pixel Magic Book
+  packageVersion: 1.11
+  assetPath: Assets/MagicBookUI/Font/NotoSerifKR-SemiBoldSDF.asset
+  uploadId: 868274

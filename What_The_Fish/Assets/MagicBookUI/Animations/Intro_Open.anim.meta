@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a2437d378bd86894abd254a175e69267
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 355410
+  packageName: Animated Pixel Magic Book
+  packageVersion: 1.11
+  assetPath: Assets/MagicBookUI/Animations/Intro_Open.anim
+  uploadId: 868274
