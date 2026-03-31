@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 727685257444641794}
   - component: {fileID: 6319403963536647906}
   m_Layer: 0
-  m_Name: fish_2_v2
+  m_Name: Big_Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1660,7 +1660,7 @@ GameObject:
   - component: {fileID: 6216757861183861494}
   - component: {fileID: 2591726487705000830}
   m_Layer: 0
-  m_Name: Fish_4_v5
+  m_Name: Smallmouth_bass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

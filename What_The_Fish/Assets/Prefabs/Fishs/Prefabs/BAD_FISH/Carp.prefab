@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 728708891015608632}
   - component: {fileID: 9050797485026266538}
   m_Layer: 0
-  m_Name: fish_1_v5
+  m_Name: Carp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
