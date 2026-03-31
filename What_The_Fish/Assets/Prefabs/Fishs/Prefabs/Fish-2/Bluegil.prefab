@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 2920819921564995474}
   - component: {fileID: 3387392204677883460}
   m_Layer: 0
-  m_Name: fish_2_v1
+  m_Name: Bluegil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
