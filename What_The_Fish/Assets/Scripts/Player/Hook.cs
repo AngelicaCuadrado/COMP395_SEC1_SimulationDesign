@@ -2,19 +2,35 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-    Cache cache;
-
+    private PlayerController player;
+    private Fish caughtFish;
     private void OnTriggerEnter(Collider other)
     {
         Fish fish;
         if (fish = other.GetComponent<Fish>()) 
         {
-            Cache(fish);
+            caughtFish = fish;
+            FishCuaghtUI.instance.ShowCaughtUI(this, caughtFish);
         }   
     }
 
-    private void Cache(Fish fish) 
-    {
 
+    public void SetPlayer(PlayerController player) 
+    {
+        this.player = player;
+    }
+
+    public void KeepFish() 
+    {
+        player.cache.Keep(caughtFish);
+        Destroy(caughtFish.gameObject);
+        caughtFish = null;
+    }
+
+    public void ThrowFish() 
+    {
+        player.cache.Throw();
+        Destroy(caughtFish.gameObject);
+        caughtFish = null;
     }
 }
