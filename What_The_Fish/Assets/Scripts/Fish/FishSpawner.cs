@@ -1,8 +1,14 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class FishSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    private Transform target;
+
+    [SerializeField]
+    private List<GameObject> fish;
+
     void Start()
     {
         
