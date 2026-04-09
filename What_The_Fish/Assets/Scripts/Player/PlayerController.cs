@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         MoveHook();
     }
 
-    private void MoveHook()
+    private void MoveHook() 
     {
         Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
         hook.transform.position += move * moveSpeed * Time.deltaTime;
