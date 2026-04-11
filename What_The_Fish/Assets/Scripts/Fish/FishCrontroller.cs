@@ -13,4 +13,9 @@ public class FishCrontroller : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed*Time.deltaTime);
     }
+
+    public void SetTarget(Transform target) 
+    {
+        this.target = target;
+    }
 }
