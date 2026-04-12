@@ -12,6 +12,11 @@ public class FishCrontroller : MonoBehaviour
         if(target == null) { return; }
 
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed*Time.deltaTime);
+
+        if (transform.position == target.position) 
+        {
+            Destroy(this);
+        }
     }
 
     public void SetTarget(Transform target) 

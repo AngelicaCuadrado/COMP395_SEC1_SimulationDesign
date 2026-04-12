@@ -4,5 +4,6 @@ using UnityEngine;
 public class FishData : ScriptableObject
 {
     public GameObject prefab;
+    public bool isGoodFish;
     public float frequency = 1.0f;
 }

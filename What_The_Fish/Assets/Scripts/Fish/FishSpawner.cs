@@ -34,9 +34,11 @@ public class FishSpawner : MonoBehaviour
 
         GameObject fishObj = Instantiate(data.prefab, transform.position, Quaternion.identity);
 
+        Fish fishScript = fishObj.GetComponent<Fish>();
+        if (fishScript != null) fishScript.fishData = data;
+
         FishCrontroller controller = fishObj.GetComponent<FishCrontroller>();
-        if (controller != null)
-            controller.SetTarget(target);
+        if (controller != null) controller.SetTarget(target);
     }
 
     private FishData ChooseFishByFrequency()
