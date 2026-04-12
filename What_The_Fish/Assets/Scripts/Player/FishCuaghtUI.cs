@@ -7,7 +7,7 @@ public class FishCuaghtUI : MonoBehaviour
 
     [SerializeField] private GameObject caughtUI;
     [SerializeField] private GameObject mainUI;
-    private Hook hook;
+    [SerializeField] private Hook hook;
 
     [Header("Visual Elements")]
     [SerializeField] private Image timerBar;
@@ -30,7 +30,7 @@ public class FishCuaghtUI : MonoBehaviour
     {
         if (isTimerRunning)
         {
-            currentTime -= Time.deltaTime;
+            currentTime -= Time.unscaledDeltaTime;
             timerBar.fillAmount = currentTime / timeLimit;
 
             if (currentTime <= 0)
@@ -55,23 +55,53 @@ public class FishCuaghtUI : MonoBehaviour
         if (spawnedFishUI != null) Destroy(spawnedFishUI);
 
         spawnedFishUI = Instantiate(fish.gameObject, fishContainer);
-        spawnedFishUI.transform.localPosition = Vector3.zero;
-        spawnedFishUI.transform.localScale = Vector3.one * 50f;
+        spawnedFishUI.transform.localPosition = new Vector3(120f, -30f, 0f);
+        spawnedFishUI.transform.localScale = originalFish.transform.localScale * 900f;
+        spawnedFishUI.transform.localRotation = Quaternion.Euler(-90f, 90f, 0f);
+        SetLayerRecursively(spawnedFishUI, LayerMask.NameToLayer("UI"));
 
         FishCrontroller fishController = spawnedFishUI.GetComponent<FishCrontroller>();
         if (fishController != null) Destroy(fishController);
 
+        Animator anim = spawnedFishUI.GetComponentInChildren<Animator>();
+        if (anim != null)
+        {
+            anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+            anim.speed = 5f;
+        }
+
+        AudioManager.Instance.StartLoop(AudioManager.Instance.audioFishing);
+
         originalFish.gameObject.SetActive(false);
+        Time.timeScale = 0f;
+    }
+
+    private void SetLayerRecursively(GameObject obj, int newLayer)
+    {
+        obj.layer = newLayer;
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
     }
 
     public void OnKeepPressed()
     {
+        AudioManager.Instance.StopLoop();
+
+        if (originalFish.fishData.isGoodFish)
+            AudioManager.Instance.PlaySound(AudioManager.Instance.audioGainPoints);
+        else
+            AudioManager.Instance.PlaySound(AudioManager.Instance.audioLosePoints);
+
         hook.KeepFish();
         CloseUI();
     }
 
     public void OnThrowPressed()
     {
+        AudioManager.Instance.StopLoop();
+        AudioManager.Instance.PlaySound(AudioManager.Instance.audioRelease);
         hook.ThrowFish();
         CloseUI();
     }
@@ -79,11 +109,10 @@ public class FishCuaghtUI : MonoBehaviour
     private void CloseUI()
     {
         isTimerRunning = false;
-
-        if (spawnedFishUI != null) Destroy(spawnedFishUI);
-        if (originalFish != null) originalFish.gameObject.SetActive(true);
-
         caughtUI.SetActive(false);
         if (mainUI != null) mainUI.SetActive(true);
+        if (spawnedFishUI != null) Destroy(spawnedFishUI);
+
+        Time.timeScale = 1f;
     }
 }

@@ -8,26 +8,37 @@ public class BookUIManager : MonoBehaviour
 
     public void OpenBook()
     {
+        Time.timeScale = 0f;
+
         gameCanvas.SetActive(false);
         bookCanvas.SetActive(true);
 
         if (bookAnimator != null)
         {
+            bookAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+
             bookAnimator.SetBool("Open", true);
+            bookAnimator.SetBool("Close", false);
         }
-        AudioManager.Instance.PlaySound(AudioManager.Instance.audioOpenBook);
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySound(AudioManager.Instance.audioOpenBook);
     }
 
     public void CloseBook()
     {
-        bookCanvas.SetActive(false);
-        gameCanvas.SetActive(true);
+        Time.timeScale = 1f;
 
         if (bookAnimator != null)
         {
             bookAnimator.SetBool("Close", true);
             bookAnimator.SetBool("Open", false);
         }
-        AudioManager.Instance.PlaySound(AudioManager.Instance.audioCloseBook);
+
+        bookCanvas.SetActive(false);
+        gameCanvas.SetActive(true);
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySound(AudioManager.Instance.audioCloseBook);
     }
 }

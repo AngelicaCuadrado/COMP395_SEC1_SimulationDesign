@@ -4,14 +4,18 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    [Header("Player")]
+    [Header("Sources")]
     public AudioSource sfxSource;
+    public AudioSource loopSource;
 
-    [Header("Your Sound Effects (Drag the files here)")]
+    [Header("Clips")]
     public AudioClip audioOpenBook;
     public AudioClip audioCloseBook;
     public AudioClip audioPageTurn;
     public AudioClip audioGainPoints;
+    public AudioClip audioLosePoints;
+    public AudioClip audioFishing;
+    public AudioClip audioRelease;
 
     private void Awake()
     {
@@ -25,11 +29,22 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     public void PlaySound(AudioClip clip)
     {
-        if (clip != null)
-        {
-            sfxSource.PlayOneShot(clip);
-        }
+        if (clip != null) sfxSource.PlayOneShot(clip);
+    }
+
+    public void StartLoop(AudioClip clip)
+    {
+        if (clip == null) return;
+        loopSource.clip = clip;
+        loopSource.loop = true;
+        loopSource.Play();
+    }
+
+    public void StopLoop()
+    {
+        loopSource.Stop();
     }
 }

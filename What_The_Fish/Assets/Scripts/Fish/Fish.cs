@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour
 {
+    public FishData fishData;
+
     [SerializeField]
     int mercury;
     [SerializeField]
     int food;
-
+    
     void Start()
     {
         

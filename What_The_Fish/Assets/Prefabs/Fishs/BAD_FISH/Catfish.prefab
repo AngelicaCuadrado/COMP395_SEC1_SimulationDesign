@@ -1850,8 +1850,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3396968485178239866}
   - {fileID: 1435403554866830209}
@@ -1891,8 +1891,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db0ddcf66aa0d24aa73438a8b9c5a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
-  mercury: 0
-  food: 0
+  mercury: 12
+  food: 8
 --- !u!114 &2656345119363389861
 MonoBehaviour:
   m_ObjectHideFlags: 0
