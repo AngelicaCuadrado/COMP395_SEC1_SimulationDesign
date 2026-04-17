@@ -452,8 +452,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db0ddcf66aa0d24aa73438a8b9c5a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
+  fishData: {fileID: 0}
   mercury: 1
   food: 5
+  data: {fileID: 11400000, guid: 76e411b6f3c52cf429946442a6067097, type: 2}
 --- !u!114 &-5092777518217639743
 MonoBehaviour:
   m_ObjectHideFlags: 0

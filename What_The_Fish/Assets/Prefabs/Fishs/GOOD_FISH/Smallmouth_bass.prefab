@@ -1728,8 +1728,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db0ddcf66aa0d24aa73438a8b9c5a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
+  fishData: {fileID: 0}
   mercury: 4
   food: 10
+  data: {fileID: 11400000, guid: 39bd6c5a8b7f79f49974b5460db8a53c, type: 2}
 --- !u!114 &9076534109640885742
 MonoBehaviour:
   m_ObjectHideFlags: 0

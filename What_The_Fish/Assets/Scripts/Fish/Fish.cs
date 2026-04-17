@@ -8,7 +8,7 @@ public class Fish : MonoBehaviour
     int mercury;
     [SerializeField]
     int food;
-    
+
     void Start()
     {
         

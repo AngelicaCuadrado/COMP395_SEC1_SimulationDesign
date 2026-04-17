@@ -12,6 +12,7 @@ public class FishCuaghtUI : MonoBehaviour
     [Header("Visual Elements")]
     [SerializeField] private Image timerBar;
     [SerializeField] private Transform fishContainer;
+    [SerializeField] private Image fishIconDisplay;
 
     [Header("Time Settings")]
     [SerializeField] private float timeLimit = 5f;
@@ -70,10 +71,18 @@ public class FishCuaghtUI : MonoBehaviour
             anim.speed = 5f;
         }
 
-        AudioManager.Instance.StartLoop(AudioManager.Instance.audioFishing);
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.StartLoop(AudioManager.Instance.audioFishing);
 
         originalFish.gameObject.SetActive(false);
         Time.timeScale = 0f;
+
+        if (fishIconDisplay != null && originalFish.fishData != null)
+        {
+            fishIconDisplay.sprite = originalFish.fishData.icon;
+            fishIconDisplay.color = Color.white;
+            fishIconDisplay.gameObject.SetActive(true);
+        }
     }
 
     private void SetLayerRecursively(GameObject obj, int newLayer)
