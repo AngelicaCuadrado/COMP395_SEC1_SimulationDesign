@@ -1,12 +1,14 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class TutorialStep
 {
     [TextArea(3, 5)]
     public string sentence;
+    public Sprite majorEmotion;
     public UnityEvent onStepEnter;
     public UnityEvent onStepExit;
 }
@@ -17,6 +19,15 @@ public class TutorialManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private Image majorPortraitDisplay;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip nextDialogueSound;
+
+    [Header("Panel Movement")]
+    [SerializeField] private RectTransform panelRectTransform;
+    public Vector2 positionTop = new Vector2(0, 350f);
+    public Vector2 positionBottom = new Vector2(0, -350f);
 
     [Header("Tutorial Sequence")]
     [SerializeField] private TutorialStep[] steps;
@@ -27,7 +38,6 @@ public class TutorialManager : MonoBehaviour
     void Awake()
     {
         Time.timeScale = 0f;
-        Debug.Log("Tutorial: Intentando pausar en Awake");
     }
 
     void Start()
@@ -39,12 +49,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (isTutorialActive)
         {
-            if (Time.timeScale != 0f)
-            {
-                Time.timeScale = 0f;
-                Debug.LogWarning("¡ALERTA! Otro script intentó reanudar el tiempo, pero el Major Bobber lo bloqueó.");
-            }
-
+            Time.timeScale = 0f;
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 DisplayNextStep();
@@ -62,6 +67,11 @@ public class TutorialManager : MonoBehaviour
 
     public void DisplayNextStep()
     {
+        if (AudioManager.Instance != null && nextDialogueSound != null)
+        {
+            AudioManager.Instance.PlaySound(nextDialogueSound);
+        }
+
         steps[currentStepIndex].onStepExit?.Invoke();
         currentStepIndex++;
 
@@ -78,8 +88,13 @@ public class TutorialManager : MonoBehaviour
     private void ShowStep(int index)
     {
         dialogueText.text = steps[index].sentence;
+
+        if (steps[index].majorEmotion != null)
+        {
+            majorPortraitDisplay.sprite = steps[index].majorEmotion;
+        }
+
         steps[index].onStepEnter?.Invoke();
-        Time.timeScale = 0f;
     }
 
     private void EndTutorial()
@@ -87,6 +102,8 @@ public class TutorialManager : MonoBehaviour
         isTutorialActive = false;
         tutorialPanel.SetActive(false);
         Time.timeScale = 1f;
-        Debug.Log("Tutorial terminado: Tiempo reanudado.");
     }
+
+    public void MovePanelToTop() { if (panelRectTransform != null) panelRectTransform.anchoredPosition = positionTop; }
+    public void MovePanelToBottom() { if (panelRectTransform != null) panelRectTransform.anchoredPosition = positionBottom; }
 }
