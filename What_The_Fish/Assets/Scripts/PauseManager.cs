@@ -9,12 +9,18 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject confirmationUI;
     [SerializeField] private GameObject gameOverUI;
 
+    [Header("Special UIs (To Prevent Resume)")]
+    [SerializeField] private GameObject bookUI;
+    [SerializeField] private GameObject caughtUI;
+
     private bool isPaused = false;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (IsSpecialUIActive()) return;
+
             if (isPaused) Resume();
             else Pause();
         }
@@ -24,6 +30,8 @@ public class PauseManager : MonoBehaviour
 
     public void Resume()
     {
+        if (IsSpecialUIActive()) return;
+
         pauseUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -54,17 +62,16 @@ public class PauseManager : MonoBehaviour
 
     public void ShowRestartConfirmation()
     {
-        confirmationUI.SetActive(true); // UI_Pause stays visible behind the confirmation
+        confirmationUI.SetActive(true);
     }
 
     public void CancelRestart()
     {
-        confirmationUI.SetActive(false); // Just hide confirmation, UI_Pause is already visible
+        confirmationUI.SetActive(false);
     }
 
     public void ConfirmRestart()
     {
-        // Clears save — equivalent to New Beginning from Title Screen
         SaveManager.ClearSave();
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -72,25 +79,35 @@ public class PauseManager : MonoBehaviour
 
     // --- Game Over ---
 
-    // Assigned to EndGame (test) button onClick — placeholder until game loop triggers this
-    public void ShowGameOver()
+    // isWin: true = happy/worried ending, false = sad ending
+    public void ShowGameOver(bool isWin = true)
     {
         pauseUI.SetActive(false);
         Time.timeScale = 0f;
         gameOverUI.SetActive(true);
+        Debug.Log(isWin ? "LEVEL WIN" : "LEVEL LOSE");
     }
 
     // --- Main Menu ---
 
     public void GoToMainMenu()
     {
-        // Save progress — always fires so TitleScene shows RESUME GAME.
-        // Cache values default to 0 until the full game loop is wired up.
         PlayerController player = FindFirstObjectByType<PlayerController>();
-        int food    = player != null ? player.cache.food    : 0;
+        int food = player != null ? player.cache.food : 0;
         int mercury = player != null ? player.cache.mercury : 0;
+
         SaveManager.SaveGame(food, mercury);
         Time.timeScale = 1f;
         SceneManager.LoadScene("TitleScene");
+    }
+
+    // --- Helper Logic ---
+
+    private bool IsSpecialUIActive()
+    {
+        bool isBookOpen = bookUI != null && bookUI.activeInHierarchy;
+        bool isCaughtOpen = caughtUI != null && caughtUI.activeInHierarchy;
+
+        return isBookOpen || isCaughtOpen;
     }
 }
