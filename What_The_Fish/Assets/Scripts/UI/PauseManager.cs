@@ -79,11 +79,13 @@ public class PauseManager : MonoBehaviour
 
     // --- Game Over ---
 
-    public void ShowGameOver()
+    // isWin: true = happy/worried ending, false = sad ending
+    public void ShowGameOver(bool isWin = true)
     {
         pauseUI.SetActive(false);
         Time.timeScale = 0f;
         gameOverUI.SetActive(true);
+        Debug.Log(isWin ? "LEVEL WIN" : "LEVEL LOSE");
     }
 
     // --- Main Menu ---

@@ -29,9 +29,9 @@ public class Hook : MonoBehaviour
         caughtFish = null;
     }
 
-    public void ThrowFish() 
+    public void ThrowFish()
     {
-        player.cache.Throw();
+        player.cache.Throw(caughtFish);
         Destroy(caughtFish.gameObject);
         caughtFish = null;
     }
