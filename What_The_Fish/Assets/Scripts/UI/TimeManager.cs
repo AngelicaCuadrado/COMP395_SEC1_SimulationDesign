@@ -34,6 +34,12 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private PlayerEmotionManager emotionManager;
 
+    [Header("Scoring")]
+    [SerializeField] private float mercurySafeRatio = 0.10f;
+
+    [Header("Level Moving")]
+    [SerializeField] private GameObject playerPrefab;
+
     private float currentTimeInMinutes;
     private int currentDay = 1;
     private bool isTimerRunning = false;
@@ -146,6 +152,20 @@ public class TimeManager : MonoBehaviour
         if (levelNumber < 3)
         {
             levelNumber++;
+            Debug.Log("Next Level");
+            // Move player and camera to new level positions
+            Transform playerSpawn = LevelPositionManager.instance.GetPlayerSpawn(levelNumber);
+            Transform cameraPos = LevelPositionManager.instance.GetCameraPosition(levelNumber);
+
+            if (playerSpawn != null)
+            {
+                playerPrefab.transform.position = playerSpawn.position;
+
+            }
+
+            CameraMover cam = Camera.main.GetComponent<CameraMover>();
+            if (cam != null && cameraPos != null)
+                cam.MoveTo(cameraPos);
 
             // Reset cache for the new zone
             int zoneIndex = levelNumber - 1;
@@ -185,26 +205,44 @@ public class TimeManager : MonoBehaviour
     {
         if (player == null) return;
 
-        int food         = player.cache.food;
-        int mercury      = player.cache.mercury;
-        int maxFood      = player.cache.maxFood;
-        int maxMercury   = player.cache.maxMercury;
-        int correctSorts = player.cache.correctSorts;
+        int food = player.cache.food;
+        int mercury = player.cache.mercury;
+        int maxFood = player.cache.maxFood;
+        int maxMercury = player.cache.maxMercury;
 
-        int baseScore  = food * 10 - mercury * 15 + correctSorts * 5;
-        int levelScore = Mathf.Max(0, baseScore + bonusPoints);
+        //Scoring System
+        const int villagers = 100;
+        const float foodPerVillager = 1f;
 
-        int stars = 1;
-        if (emotionManager != null)
+        //Starvation
+        int fed = Mathf.Min(villagers, Mathf.FloorToInt(food / foodPerVillager));
+        int starved = villagers - fed;
+
+        //Mercury Poisoning
+        float ratio = (float)mercury / Mathf.Max(food, 1);
+        int poisoned = 0;
+
+        if (ratio >= mercurySafeRatio)
         {
-            if (emotionManager.CurrentState == PlayerEmotionManager.EmotionState.Happy)
-                stars = 3;
-            else if (emotionManager.CurrentState == PlayerEmotionManager.EmotionState.Worried)
-                stars = 2;
+            float lethalRatio = ratio - mercurySafeRatio;
+            poisoned = Mathf.Clamp(Mathf.FloorToInt(fed * lethalRatio), 0, fed);
         }
 
+        //Final survivors (0–100 score)
+        int survivors = Mathf.Clamp(fed - poisoned, 0, villagers);
+
+        //Apply bonus points
+        //survivors = Mathf.Clamp(survivors + bonusPoints, 0, villagers);
+
+        //Convert survivors to stars
+        int stars = 0;
+        if (survivors >= 67) stars = 3;
+        else if (survivors >= 34) stars = 2;
+        else if (survivors >= 1) stars = 1;
+
+        //Save stars and stats
         SaveManager.SaveLevelStars(levelNumber, stars);
-        SaveManager.SaveLevelStats(levelNumber, food, maxFood, mercury, maxMercury, levelScore);
-        SaveManager.AddToCumulativeScore(levelScore);
+        SaveManager.SaveLevelStats(levelNumber, food, maxFood, mercury, maxMercury, survivors);
+        SaveManager.AddToCumulativeScore(survivors);
     }
 }

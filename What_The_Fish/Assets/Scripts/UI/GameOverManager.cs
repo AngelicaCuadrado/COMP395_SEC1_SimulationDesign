@@ -106,4 +106,28 @@ public class GameOverManager : MonoBehaviour
         else
             mayorsMessageText.text = "The town is struggling. Mercury levels are too high.";
     }
+
+    public static int CalculateSurvivalScore(int foodCollected, int mercuryCollected)
+    {
+        const int villagers = 100;
+        const float foodPerVillager = 1f;
+
+        int fed = Mathf.Min(villagers, Mathf.FloorToInt(foodCollected / foodPerVillager));
+        int starved = villagers - fed;
+
+        float ratio = (float)mercuryCollected / Mathf.Max(foodCollected, 1);
+        int poisoned = Mathf.Clamp(Mathf.FloorToInt(fed * ratio), 0, fed);
+
+        int survivors = Mathf.Clamp(fed - poisoned, 0, villagers);
+
+        return survivors;
+    }
+
+    public static int ScoreToStars(int score)
+    {
+        if (score >= 67) return 3;
+        if (score >= 34) return 2;
+        if (score >= 1) return 1;
+        return 0;
+    }
 }

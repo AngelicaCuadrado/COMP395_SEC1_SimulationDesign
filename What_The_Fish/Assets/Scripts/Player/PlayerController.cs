@@ -72,4 +72,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    public void TeleportTo(Transform target)
+    {
+        transform.position = target.position;
+        transform.rotation = target.rotation;
+    }
 }

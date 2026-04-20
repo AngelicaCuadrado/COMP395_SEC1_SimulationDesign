@@ -39,10 +39,12 @@ public class Cache
         if (isGood)
         {
             food += Mathf.RoundToInt(fish.GetFood() * statMultiplier);
+            mercury += Mathf.RoundToInt(fish.GetMercury() * statMultiplier);
             correctSorts++;
         }
         else
         {
+            food += Mathf.RoundToInt(fish.GetFood() * statMultiplier);
             mercury += Mathf.RoundToInt(fish.GetMercury() * statMultiplier);
         }
 
