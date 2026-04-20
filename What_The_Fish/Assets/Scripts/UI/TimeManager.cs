@@ -160,7 +160,7 @@ public class TimeManager : MonoBehaviour
             if (playerSpawn != null)
             {
                 playerPrefab.transform.position = playerSpawn.position;
-
+                playerPrefab.transform.rotation = playerSpawn.rotation;
             }
 
             CameraMover cam = Camera.main.GetComponent<CameraMover>();
