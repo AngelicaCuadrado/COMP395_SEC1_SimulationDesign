@@ -207,8 +207,8 @@ public class TimeManager : MonoBehaviour
                 int stars = GameOverManager.ScoreToStars(survivors);
                 ui.ShowResults(survivors, stars);
             }
-            //PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
-            //pauseManager?.ShowGameOver(true);
+            PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
+            pauseManager?.ShowGameOver(true);
         }
     }
 
