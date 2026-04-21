@@ -917,6 +917,7 @@ GameObject:
   - component: {fileID: 314297036}
   - component: {fileID: 314297035}
   - component: {fileID: 314297034}
+  - component: {fileID: 314297037}
   m_Layer: 5
   m_Name: Settings btn
   m_TagString: Untagged
@@ -1012,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1038,6 +1039,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314297032}
   m_CullTransparentMesh: 1
+--- !u!114 &314297037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314297032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1 &365613486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,6 +1064,7 @@ GameObject:
   - component: {fileID: 365613490}
   - component: {fileID: 365613489}
   - component: {fileID: 365613488}
+  - component: {fileID: 365613491}
   m_Layer: 5
   m_Name: cancel
   m_TagString: Untagged
@@ -1145,7 +1160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1171,6 +1186,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365613486}
   m_CullTransparentMesh: 1
+--- !u!114 &365613491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365613486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1 &395897510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,6 +1475,7 @@ GameObject:
   - component: {fileID: 426700578}
   - component: {fileID: 426700577}
   - component: {fileID: 426700576}
+  - component: {fileID: 426700579}
   m_Layer: 5
   m_Name: Start btn
   m_TagString: Untagged
@@ -1542,7 +1571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1568,6 +1597,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426700574}
   m_CullTransparentMesh: 1
+--- !u!114 &426700579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426700574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1 &463839688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,6 +3113,7 @@ GameObject:
   - component: {fileID: 1021919401}
   - component: {fileID: 1021919400}
   - component: {fileID: 1021919399}
+  - component: {fileID: 1021919402}
   m_Layer: 5
   m_Name: cancelquit
   m_TagString: Untagged
@@ -3166,7 +3209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3192,6 +3235,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021919397}
   m_CullTransparentMesh: 1
+--- !u!114 &1021919402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021919397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1 &1027662605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,6 +4170,7 @@ GameObject:
   - component: {fileID: 1348008428}
   - component: {fileID: 1348008427}
   - component: {fileID: 1348008426}
+  - component: {fileID: 1348008429}
   m_Layer: 5
   m_Name: newbeginning
   m_TagString: Untagged
@@ -4210,7 +4267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4236,6 +4293,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348008424}
   m_CullTransparentMesh: 1
+--- !u!114 &1348008429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348008424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1 &1353715615
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,6 +4357,7 @@ GameObject:
   - component: {fileID: 1356013758}
   - component: {fileID: 1356013757}
   - component: {fileID: 1356013756}
+  - component: {fileID: 1356013759}
   m_Layer: 5
   m_Name: cancel
   m_TagString: Untagged
@@ -4382,7 +4453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4408,6 +4479,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356013754}
   m_CullTransparentMesh: 1
+--- !u!114 &1356013759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356013754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1 &1381322225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4821,6 +4905,7 @@ GameObject:
   - component: {fileID: 1613023724}
   - component: {fileID: 1613023723}
   - component: {fileID: 1613023722}
+  - component: {fileID: 1613023725}
   m_Layer: 5
   m_Name: save
   m_TagString: Untagged
@@ -4916,7 +5001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4942,6 +5027,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613023720}
   m_CullTransparentMesh: 1
+--- !u!114 &1613023725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613023720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1 &1700068279
 GameObject:
   m_ObjectHideFlags: 0
@@ -5456,6 +5554,7 @@ GameObject:
   - component: {fileID: 2080731405}
   - component: {fileID: 2080731404}
   - component: {fileID: 2080731403}
+  - component: {fileID: 2080731406}
   m_Layer: 5
   m_Name: lastsaved
   m_TagString: Untagged
@@ -5552,7 +5651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5578,6 +5677,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080731401}
   m_CullTransparentMesh: 1
+--- !u!114 &2080731406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080731401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1 &2111215322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5590,6 +5702,7 @@ GameObject:
   - component: {fileID: 2111215326}
   - component: {fileID: 2111215325}
   - component: {fileID: 2111215324}
+  - component: {fileID: 2111215327}
   m_Layer: 5
   m_Name: Quit btn
   m_TagString: Untagged
@@ -5684,7 +5797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5710,6 +5823,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111215322}
   m_CullTransparentMesh: 1
+--- !u!114 &2111215327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111215322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1 &2121000884
 GameObject:
   m_ObjectHideFlags: 0
@@ -5849,6 +5975,7 @@ GameObject:
   - component: {fileID: 2144442722}
   - component: {fileID: 2144442721}
   - component: {fileID: 2144442720}
+  - component: {fileID: 2144442723}
   m_Layer: 5
   m_Name: nosave
   m_TagString: Untagged
@@ -5944,7 +6071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: cdc63fb887ea7b143a1ecae8b2b4c091, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5970,6 +6097,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144442718}
   m_CullTransparentMesh: 1
+--- !u!114 &2144442723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144442718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7ef4686fd2a0e4d8e1a731bffb9067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonShaderUnscaledTime
+  timeProperty: _ManualTime
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
