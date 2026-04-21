@@ -6,6 +6,7 @@ public class Fish : MonoBehaviour
     int mercury;
     [SerializeField]
     int food;
+    public bool isGoodFish;
 
     void Start()
     {
