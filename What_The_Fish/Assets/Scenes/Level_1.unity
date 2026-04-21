@@ -58366,6 +58366,8 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+<<<<<<< HEAD
+=======
 --- !u!1 &1340650610
 GameObject:
   m_ObjectHideFlags: 0
@@ -58441,6 +58443,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340650610}
   m_CullTransparentMesh: 1
+>>>>>>> e29f849e92d24aa6e8ae57a37687c8057bf923fd
 --- !u!1 &1344062372
 GameObject:
   m_ObjectHideFlags: 0
@@ -60709,7 +60712,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 101
+  m_SortingOrder: 200
   m_TargetDisplay: 0
 --- !u!114 &1385364545
 MonoBehaviour:
@@ -65303,10 +65306,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+<<<<<<< HEAD
+      - m_Target: {fileID: 63129023}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: ShowGameOver
+        m_Mode: 6
+=======
       - m_Target: {fileID: 292658552}
         m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
         m_MethodName: TriggerEndGame
         m_Mode: 1
+>>>>>>> e29f849e92d24aa6e8ae57a37687c8057bf923fd
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
