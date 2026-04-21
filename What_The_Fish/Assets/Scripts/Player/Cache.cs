@@ -34,7 +34,7 @@ public class Cache
 
     public void Keep(Fish fish)
     {
-        bool isGood = fish.isGoodFish;
+        bool isGood = fish.fishData != null && fish.fishData.isGoodFish;
 
         if (isGood)
         {
@@ -58,7 +58,7 @@ public class Cache
     {
         fishCaught++; // counts all fish encountered, regardless of decision
 
-        if (fish != null && !fish.isGoodFish)
+        if (fish != null && fish.fishData != null && !fish.fishData.isGoodFish)
             correctSorts++;
 
         RefreshUI();
