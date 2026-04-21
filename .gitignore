@@ -113,3 +113,17 @@ What_The_Fish/Temp/UnityLockfile
 What_The_Fish/UserSettings/Layouts/default-6000.dwlt
 What_The_Fish/UserSettings/Layouts/default-6000.dwlt
 What_The_Fish/UserSettings/Layouts/default-6000.dwlt
+
+
+What_The_Fish/Temp/
+*.orig
+*.slnx
+
+
+[Tt]emp/
+[Oo]bj/
+[Ll]ibrary/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
