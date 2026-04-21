@@ -11879,10 +11879,10 @@ MonoBehaviour:
   nextLevelUI: {fileID: 336272853}
   zoneText: {fileID: 713471228}
   bannerDuration: 2
-  totalDays: 3
+  totalDays: 1
   timeMultiplier: 10
   startHour: 4
-  endHour: 16
+  endHour: 10
   maxFoodPerZone: 2c010000c2010000f4010000
   maxMercuryPerZone: 2c010000c2010000f4010000
   player: {fileID: 569820851}
