@@ -50,6 +50,12 @@ public class TutorialManager : MonoBehaviour
         if (isTutorialActive)
         {
             Time.timeScale = 0f;
+
+            if (PauseManager.Instance != null && PauseManager.Instance.IsAnyMenuOpen())
+            {
+                return;
+            }
+
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 DisplayNextStep();
