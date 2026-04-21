@@ -78,4 +78,6 @@ public static class SaveManager
         }
         PlayerPrefs.Save();
     }
+
+
 }
