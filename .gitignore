@@ -113,3 +113,14 @@ What_The_Fish/Temp/UnityLockfile
 What_The_Fish/UserSettings/Layouts/default-6000.dwlt
 What_The_Fish/UserSettings/Layouts/default-6000.dwlt
 What_The_Fish/UserSettings/Layouts/default-6000.dwlt
+
+
+/[Ww]hat_[Tt]he_[Ff]ish/[Tt]emp/
+/[Ww]hat_[Tt]he_[Ff]ish/[Ll]ibrary/
+/[Ww]hat_[Tt]he_[Ff]ish/[Uu]ser[Ss]ettings/
+/[Ww]hat_[Tt]he_[Ff]ish/[Oo]bj/
+/[Ww]hat_[Tt]he_[Ff]ish/[Ll]ogs/
+*.sln
+*.csproj
+*.unitypackage
+*.slnx
