@@ -13,7 +13,14 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject bookUI;
     [SerializeField] private GameObject caughtUI;
 
+    public static PauseManager Instance { get; private set; }
     private bool isPaused = false;
+
+    void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     void Update()
     {
@@ -25,8 +32,6 @@ public class PauseManager : MonoBehaviour
             else Pause();
         }
     }
-
-    // --- Pause / Resume ---
 
     public void Resume()
     {
@@ -44,8 +49,6 @@ public class PauseManager : MonoBehaviour
         isPaused = true;
     }
 
-    // --- Glossary (Coming Soon) ---
-
     public void OpenGlossary()
     {
         pauseUI.SetActive(false);
@@ -57,8 +60,6 @@ public class PauseManager : MonoBehaviour
         comingSoonUI.SetActive(false);
         pauseUI.SetActive(true);
     }
-
-    // --- Restart Confirmation ---
 
     public void ShowRestartConfirmation()
     {
@@ -77,18 +78,12 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // --- Game Over ---
-
-    // isWin: true = happy/worried ending, false = sad ending
     public void ShowGameOver(bool isWin = true)
     {
         pauseUI.SetActive(false);
         Time.timeScale = 0f;
         gameOverUI.SetActive(true);
-        Debug.Log(isWin ? "LEVEL WIN" : "LEVEL LOSE");
     }
-
-    // --- Main Menu ---
 
     public void GoToMainMenu()
     {
@@ -101,13 +96,19 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene("TitleScene");
     }
 
-    // --- Helper Logic ---
+    public bool IsAnyMenuOpen()
+    {
+        return pauseUI.activeInHierarchy ||
+               comingSoonUI.activeInHierarchy ||
+               confirmationUI.activeInHierarchy ||
+               gameOverUI.activeInHierarchy ||
+               IsSpecialUIActive();
+    }
 
     private bool IsSpecialUIActive()
     {
         bool isBookOpen = bookUI != null && bookUI.activeInHierarchy;
         bool isCaughtOpen = caughtUI != null && caughtUI.activeInHierarchy;
-
         return isBookOpen || isCaughtOpen;
     }
 }

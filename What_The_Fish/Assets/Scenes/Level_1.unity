@@ -30291,6 +30291,7 @@ GameObject:
   - component: {fileID: 762182855}
   - component: {fileID: 762182854}
   - component: {fileID: 762182853}
+  - component: {fileID: 762182856}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -30380,6 +30381,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762182851}
   m_CullTransparentMesh: 1
+--- !u!114 &762182856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762182851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &763316394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42289,6 +42307,7 @@ GameObject:
   - component: {fileID: 1022631914}
   - component: {fileID: 1022631913}
   - component: {fileID: 1022631912}
+  - component: {fileID: 1022631915}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -42381,6 +42400,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022631910}
   m_CullTransparentMesh: 1
+--- !u!114 &1022631915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022631910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1024476372
 GameObject:
   m_ObjectHideFlags: 0
@@ -56024,6 +56060,7 @@ GameObject:
   - component: {fileID: 1338886827}
   - component: {fileID: 1338886826}
   - component: {fileID: 1338886825}
+  - component: {fileID: 1338886828}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -56115,6 +56152,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338886823}
   m_CullTransparentMesh: 1
+--- !u!114 &1338886828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338886823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1344062372
 GameObject:
   m_ObjectHideFlags: 0
@@ -58153,6 +58207,7 @@ GameObject:
   - component: {fileID: 1385364543}
   - component: {fileID: 1385364542}
   - component: {fileID: 1385364544}
+  - component: {fileID: 1385364545}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -58240,8 +58295,25 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 101
+  m_SortingOrder: 200
   m_TargetDisplay: 0
+--- !u!114 &1385364545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385364540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &1385426609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62899,7 +62971,7 @@ MonoBehaviour:
       - m_Target: {fileID: 63129023}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
         m_MethodName: ShowGameOver
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
