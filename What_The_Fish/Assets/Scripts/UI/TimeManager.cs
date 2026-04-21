@@ -153,19 +153,22 @@ public class TimeManager : MonoBehaviour
         {
             levelNumber++;
             Debug.Log("Next Level");
-            // Move player and camera to new level positions
-            Transform playerSpawn = LevelPositionManager.instance.GetPlayerSpawn(levelNumber);
-            Transform cameraPos = LevelPositionManager.instance.GetCameraPosition(levelNumber);
-
-            if (playerSpawn != null)
+            // Move player and camera to new level positions (requires LevelPositionManager in scene)
+            if (LevelPositionManager.instance != null)
             {
-                playerPrefab.transform.position = playerSpawn.position;
-                playerPrefab.transform.rotation = playerSpawn.rotation;
-            }
+                Transform playerSpawn = LevelPositionManager.instance.GetPlayerSpawn(levelNumber);
+                Transform cameraPos   = LevelPositionManager.instance.GetCameraPosition(levelNumber);
 
-            CameraMover cam = Camera.main.GetComponent<CameraMover>();
-            if (cam != null && cameraPos != null)
-                cam.MoveTo(cameraPos);
+                if (playerSpawn != null && playerPrefab != null)
+                {
+                    playerPrefab.transform.position = playerSpawn.position;
+                    playerPrefab.transform.rotation = playerSpawn.rotation;
+                }
+
+                CameraMover cam = Camera.main.GetComponent<CameraMover>();
+                if (cam != null && cameraPos != null)
+                    cam.MoveTo(cameraPos);
+            }
 
             // Reset cache for the new zone
             int zoneIndex = levelNumber - 1;
@@ -228,7 +231,7 @@ public class TimeManager : MonoBehaviour
             poisoned = Mathf.Clamp(Mathf.FloorToInt(fed * lethalRatio), 0, fed);
         }
 
-        //Final survivors (0–100 score)
+        //Final survivors (0ï¿½100 score)
         int survivors = Mathf.Clamp(fed - poisoned, 0, villagers);
 
         //Apply bonus points
