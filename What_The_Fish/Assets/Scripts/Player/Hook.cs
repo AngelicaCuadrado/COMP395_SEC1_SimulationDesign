@@ -6,9 +6,11 @@ public class Hook : MonoBehaviour
     private Fish caughtFish;
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hook detects trigger");
         Fish fish;
         if (fish = other.GetComponent<Fish>()) 
         {
+            Debug.Log("Found Fish");
             caughtFish = fish;
             FishCuaghtUI.instance.ShowCaughtUI(this, caughtFish);
         }   

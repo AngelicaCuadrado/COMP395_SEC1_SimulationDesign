@@ -1,0 +1,10 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "FishData", menuName = "Scriptable Objects/FishData")]
+public class FishData : ScriptableObject
+{
+    public GameObject prefab;
+    public bool isGoodFish;
+    public float frequency = 1.0f;
+    public Sprite icon;
+}
