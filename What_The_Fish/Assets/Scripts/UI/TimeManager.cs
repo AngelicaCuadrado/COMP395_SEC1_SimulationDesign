@@ -36,6 +36,7 @@ public class TimeManager : MonoBehaviour
 
     [Header("Scoring")]
     [SerializeField] private float mercurySafeRatio = 0.10f;
+    [SerializeField] EndGameUIManager ui;
 
     [Header("Level Moving")]
     [SerializeField] private GameObject playerPrefab;
@@ -196,8 +197,15 @@ public class TimeManager : MonoBehaviour
         }
         else
         {
-            PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
-            pauseManager?.ShowGameOver(true);
+            if (ui != null)
+            {
+                ui.gameObject.SetActive(true);
+                int survivors = SaveManager.GetCumulativeScore();
+                int stars = GameOverManager.ScoreToStars(survivors);
+                ui.ShowResults(survivors, stars);
+            }
+            //PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
+            //pauseManager?.ShowGameOver(true);
         }
     }
 

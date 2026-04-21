@@ -125,9 +125,9 @@ public class GameOverManager : MonoBehaviour
 
     public static int ScoreToStars(int score)
     {
-        if (score >= 67) return 3;
-        if (score >= 34) return 2;
-        if (score >= 1) return 1;
+        if (score >= 250) return 3;
+        if (score >= 200) return 2;
+        if (score >= 100) return 1;
         return 0;
     }
 }
