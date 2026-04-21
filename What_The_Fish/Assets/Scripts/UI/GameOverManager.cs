@@ -11,6 +11,7 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI caughtCounterText;
     [SerializeField] private TextMeshProUGUI correctSortingText;
     [SerializeField] private TextMeshProUGUI mayorsMessageText;
+    [SerializeField] private TextMeshProUGUI survivorsText;
 
     [Header("Stars Level 1")]
     [SerializeField] private Image[] level1Stars;
@@ -54,11 +55,16 @@ public class GameOverManager : MonoBehaviour
                             + SaveManager.GetLevelMercNeeded(2)
                             + SaveManager.GetLevelMercNeeded(3);
 
+        int survivors = CalculateSurvivalScore(totalFood, totalMerc);
+
         int totalScore = SaveManager.GetCumulativeScore();
 
         if (totalFoodText    != null) totalFoodText.text    = totalFood + "/" + totalFoodNeeded;
         if (totalMercuryText != null) totalMercuryText.text = totalMerc + "/" + totalMercNeeded;
         if (totalScoreText   != null) totalScoreText.text   = totalScore.ToString();
+
+
+        if (survivorsText != null) survivorsText.text = survivors + "/100 viligars survived";
 
         if (player != null)
         {
@@ -100,17 +106,18 @@ public class GameOverManager : MonoBehaviour
         if (mayorsMessageText == null) return;
 
         if (state == PlayerEmotionManager.EmotionState.Happy)
-            mayorsMessageText.text = "Wonderful! The town is well fed. You are a hero!";
+            mayorsMessageText.text = "Wonderful! The town is healthy and well fed. You are a hero!";
         else if (state == PlayerEmotionManager.EmotionState.Worried)
-            mayorsMessageText.text = "Not bad... but the town needed more. Keep trying.";
+            mayorsMessageText.text = "Many did not make it, but we survived.";
         else
-            mayorsMessageText.text = "The town is struggling. Mercury levels are too high.";
+            mayorsMessageText.text = "The town is struggling. We lost many lives...";
     }
+
 
     public static int CalculateSurvivalScore(int foodCollected, int mercuryCollected)
     {
         const int villagers = 100;
-        const float foodPerVillager = 1f;
+        const float foodPerVillager = 12f;
 
         int fed = Mathf.Min(villagers, Mathf.FloorToInt(foodCollected / foodPerVillager));
         int starved = villagers - fed;
@@ -123,11 +130,12 @@ public class GameOverManager : MonoBehaviour
         return survivors;
     }
 
+
     public static int ScoreToStars(int score)
     {
-        if (score >= 67) return 3;
-        if (score >= 34) return 2;
-        if (score >= 1) return 1;
+        if (score >= 250) return 3;
+        if (score >= 200) return 2;
+        if (score >= 100) return 1;
         return 0;
     }
 }
