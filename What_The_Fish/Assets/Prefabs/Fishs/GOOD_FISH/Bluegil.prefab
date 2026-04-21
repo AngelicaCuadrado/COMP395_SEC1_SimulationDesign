@@ -453,8 +453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
   fishData: {fileID: 0}
-  mercury: 0
-  food: 10
+  mercury: 2
+  food: 30
 --- !u!114 &-5092777518217639743
 MonoBehaviour:
   m_ObjectHideFlags: 0

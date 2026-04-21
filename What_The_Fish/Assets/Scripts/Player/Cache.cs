@@ -22,8 +22,8 @@ public class Cache
     public int fishCaught;
     public int correctSorts;
 
-    [Header("Testing")]
-    public float statMultiplier = 3f; // set to 1f for production
+    //[Header("Testing")]
+    public float statMultiplier = 1f; // set to 1f for production
 
     [Header("Balancing")]
     public int mercuryReductionPerGoodFish = 5;
