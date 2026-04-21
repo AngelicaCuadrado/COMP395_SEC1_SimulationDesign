@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private string[] levelNames = { "Saugatuck", "Allegan Dam", "Kalamazoo City" };
     [SerializeField] private TextMeshProUGUI levelLabelText;
 
+    [Header("Zone Circle")]
+    [SerializeField] private Image zoneSaugatuck;
+    [SerializeField] private Image zoneAlleganDam;
+    [SerializeField] private Image zoneKalamazooCity;
+
     [Header("Zone Banner")]
     [SerializeField] private GameObject nextLevelUI;
     [SerializeField] private TextMeshProUGUI zoneText;
@@ -27,7 +33,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private int endHour = 20;
 
     [Header("Zone Max Stats (per zone)")]
-    [SerializeField] private int[] maxFoodPerZone    = { 300, 450, 500 };
+    [SerializeField] private int[] maxFoodPerZone = { 300, 450, 500 };
     [SerializeField] private int[] maxMercuryPerZone = { 300, 450, 500 };
 
     [Header("References")]
@@ -56,6 +62,7 @@ public class TimeManager : MonoBehaviour
             SaveManager.ClearSave();
 
         UpdateLevelLabel();
+        UpdateZoneUI();
         StartDay();
     }
 
@@ -84,10 +91,10 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateVisuals()
     {
-        int hours   = Mathf.FloorToInt(currentTimeInMinutes / 60);
+        int hours = Mathf.FloorToInt(currentTimeInMinutes / 60);
         int minutes = Mathf.FloorToInt(currentTimeInMinutes % 60);
 
-        string amPm     = hours >= 12 ? "PM" : "AM";
+        string amPm = hours >= 12 ? "PM" : "AM";
         int displayHour = hours > 12 ? hours - 12 : hours;
         if (displayHour == 0) displayHour = 12;
 
@@ -103,6 +110,18 @@ public class TimeManager : MonoBehaviour
     {
         if (levelLabelText != null)
             levelLabelText.text = "Level " + levelNumber + ": " + GetLevelName();
+    }
+
+    private void UpdateZoneUI()
+    {
+        if (zoneSaugatuck != null)
+            zoneSaugatuck.gameObject.SetActive(levelNumber == 1);
+
+        if (zoneAlleganDam != null)
+            zoneAlleganDam.gameObject.SetActive(levelNumber == 2);
+
+        if (zoneKalamazooCity != null)
+            zoneKalamazooCity.gameObject.SetActive(levelNumber == 3);
     }
 
     private string GetLevelName()
@@ -127,7 +146,6 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    // Called by Cache when food or mercury hits max
     public void EndZoneEarly(bool foodFull)
     {
         if (!isTimerRunning) return;
@@ -136,7 +154,6 @@ public class TimeManager : MonoBehaviour
         StartCoroutine(EndZoneCoroutine(bonus));
     }
 
-    // Called by the END GAME button in the top-right corner
     public void TriggerEndGame()
     {
         if (!isTimerRunning) return;
@@ -153,12 +170,13 @@ public class TimeManager : MonoBehaviour
         if (levelNumber < 3)
         {
             levelNumber++;
-            Debug.Log("Next Level");
-            // Move player and camera to new level positions (requires LevelPositionManager in scene)
+
+            UpdateZoneUI();
+
             if (LevelPositionManager.instance != null)
             {
                 Transform playerSpawn = LevelPositionManager.instance.GetPlayerSpawn(levelNumber);
-                Transform cameraPos   = LevelPositionManager.instance.GetCameraPosition(levelNumber);
+                Transform cameraPos = LevelPositionManager.instance.GetCameraPosition(levelNumber);
 
                 if (playerSpawn != null && playerPrefab != null)
                 {
@@ -171,20 +189,17 @@ public class TimeManager : MonoBehaviour
                     cam.MoveTo(cameraPos);
             }
 
-            // Reset cache for the new zone
             int zoneIndex = levelNumber - 1;
-            int newMaxFood    = zoneIndex < maxFoodPerZone.Length    ? maxFoodPerZone[zoneIndex]    : 300;
+            int newMaxFood = zoneIndex < maxFoodPerZone.Length ? maxFoodPerZone[zoneIndex] : 300;
             int newMaxMercury = zoneIndex < maxMercuryPerZone.Length ? maxMercuryPerZone[zoneIndex] : 300;
 
             if (player != null)
                 player.cache.ResetForNewZone(newMaxFood, newMaxMercury);
 
-            // Reset day counter for the new zone
             currentDay = 1;
 
             UpdateLevelLabel();
 
-            // Show zone banner
             if (zoneText != null)
                 zoneText.text = levelNumber.ToString();
 
@@ -221,15 +236,12 @@ public class TimeManager : MonoBehaviour
         int maxFood = player.cache.maxFood;
         int maxMercury = player.cache.maxMercury;
 
-        //Scoring System
         const int villagers = 100;
         const float foodPerVillager = 1f;
 
-        //Starvation
         int fed = Mathf.Min(villagers, Mathf.FloorToInt(food / foodPerVillager));
         int starved = villagers - fed;
 
-        //Mercury Poisoning
         float ratio = (float)mercury / Mathf.Max(food, 1);
         int poisoned = 0;
 
@@ -239,19 +251,13 @@ public class TimeManager : MonoBehaviour
             poisoned = Mathf.Clamp(Mathf.FloorToInt(fed * lethalRatio), 0, fed);
         }
 
-        //Final survivors (0�100 score)
         int survivors = Mathf.Clamp(fed - poisoned, 0, villagers);
 
-        //Apply bonus points
-        //survivors = Mathf.Clamp(survivors + bonusPoints, 0, villagers);
-
-        //Convert survivors to stars
         int stars = 0;
         if (survivors >= 67) stars = 3;
         else if (survivors >= 34) stars = 2;
         else if (survivors >= 1) stars = 1;
 
-        //Save stars and stats
         SaveManager.SaveLevelStars(levelNumber, stars);
         SaveManager.SaveLevelStats(levelNumber, food, maxFood, mercury, maxMercury, survivors);
         SaveManager.AddToCumulativeScore(survivors);
