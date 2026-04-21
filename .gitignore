@@ -12,6 +12,8 @@
 /[Uu]ser[Ss]ettings/
 *.log
 What_The_Fish/Library/
+What_The_Fish/Temp/
+What_The_Fish/UserSettings/
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
 *.blend1.meta
